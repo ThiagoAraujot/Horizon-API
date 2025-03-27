@@ -14,7 +14,6 @@ django-phonenumber-field==8.0.0
 django-storages==1.12.3
 djangorestframework==3.14.0
 djangorestframework-datatables==0.7.0
-djangorestframework_simplejwt==5.5.0
 dnspython==2.6.1
 drf-spectacular==0.27.2
 drf-writable-nested==0.7.0
@@ -33,7 +32,6 @@ packaging==24.1
 phonenumbers==8.13.47
 pillow==11.1.0
 psycopg2-binary==2.9.10
-PyJWT==2.9.0
 python-dateutil==2.9.0.post0
 pytz==2024.2
 PyYAML==6.0.2
@@ -41,7 +39,6 @@ referencing==0.35.1
 requests==2.32.3
 rpds-py==0.20.0
 s3transfer==0.5.2
-setuptools==78.1.0
 simplejson==3.19.3
 six==1.17.0
 slack-sdk==3.21.3
