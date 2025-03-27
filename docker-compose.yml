@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+
+  # Django app
+  app:
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --no-input &&
+             gunicorn --bind 0.0.0.0:8000 app.wsgi"
+    environment:
+      - DEBUG=0
+    env_file:
+      - ./.env
+    container_name: horizon_django_app
+    depends_on:
+      - db
+
+  # Database
+  db:
+    image: postgres:14
+    restart: always
+    volumes:
+      - ./database/_data:/var/lib/postgresql/data
+    env_file:
+      - ./.env
+    container_name: horizon_db
+    ports:
+      - 5432:5432
