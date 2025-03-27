@@ -20,17 +20,18 @@ class UserSerializer(serializers.ModelSerializer):
 class ClienteProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = ClienteProfile
-        fields = ['name', 'last_name', 'phone', 'address', 'avatar', 'score']
+        fields = ['id', 'user', 'name', 'last_name',
+                  'phone', 'address', 'avatar', 'score']
 
 
 class MecanicoProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = MecanicoProfile
-        fields = ['address', 'open_time', 'close_time',
+        fields = ['id', 'user', 'address', 'open_time', 'close_time',
                   'phone', 'level', 'avatar', 'score']
 
 
 class FornecedorProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = FornecedorProfile
-        fields = []
+        fields = ['id', 'user']
