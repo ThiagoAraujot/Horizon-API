@@ -11,8 +11,8 @@ router.register(r'mecanico', MecanicoProfileViewSet)
 router.register(r'fornecedor', FornecedorProfileViewSet)
 
 urlpatterns = [
-    path('user/register/', RegisterUserView.as_view(), name='register'),
-    path('user/login/', TokenObtainPairView.as_view(), name='login'),
-    path('user/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('user/', include(router.urls)),
+    path('register/', RegisterUserView.as_view(), name='register'),
+    path('login/', TokenObtainPairView.as_view(), name='login'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('', include(router.urls)),
 ]

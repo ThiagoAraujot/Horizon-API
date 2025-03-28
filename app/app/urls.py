@@ -18,6 +18,7 @@ schema_view = swagger_get_schema_view(
 
 api_urls = [
     path('', include('users.urls')),
+    path('', include('vehicles.urls')),
 ]
 
 urlpatterns = [

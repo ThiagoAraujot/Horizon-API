@@ -6,7 +6,7 @@ from rest_framework import viewsets
 from .models import ClienteProfile, MecanicoProfile, FornecedorProfile
 from .serializers import ClienteProfileSerializer, MecanicoProfileSerializer, FornecedorProfileSerializer
 from rest_framework.permissions import IsAuthenticated
-from .permissions import IsOwner
+from app.permissions import IsOwner
 
 
 class RegisterUserView(generics.CreateAPIView):

@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'django_filters',
     'users',
+    'vehicles',
 ]
 
 MIDDLEWARE = [
@@ -149,7 +150,7 @@ REST_FRAMEWORK = {
         'rest_framework_datatables.filters.DatatablesFilterBackend',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework_datatables.pagination.DatatablesPageNumberPagination',
-    'PAGE_SIZE': 50,
+    'PAGE_SIZE': 10,
 }
 
 SIMPLE_JWT = {
