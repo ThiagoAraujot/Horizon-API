@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'scheduling',
     'reviews',
     'products',
+    'orders',
 ]
 
 MIDDLEWARE = [

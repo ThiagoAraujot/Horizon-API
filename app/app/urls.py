@@ -22,6 +22,7 @@ api_urls = [
     path('', include('scheduling.urls')),
     path('', include('reviews.urls')),
     path('', include('products.urls')),
+    path('', include('orders.urls')),
 ]
 
 urlpatterns = [
