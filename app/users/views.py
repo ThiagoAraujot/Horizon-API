@@ -35,7 +35,7 @@ class ClienteProfileViewSet(viewsets.ModelViewSet):
         """
         if self.action in ['update', 'partial_update', 'destroy']:
             return [IsAuthenticated(), IsOwner()]
-        return [IsAuthenticated()]
+        return super().get_permissions()
 
     def perform_create(self, serializer):
         # Associa o perfil ao usuário autenticado
@@ -53,7 +53,7 @@ class MecanicoProfileViewSet(viewsets.ModelViewSet):
         """
         if self.action in ['update', 'partial_update', 'destroy']:
             return [IsAuthenticated(), IsOwner()]
-        return [IsAuthenticated()]
+        return super().get_permissions()
 
     def perform_create(self, serializer):
         # Associa o perfil ao usuário autenticado
@@ -71,7 +71,7 @@ class FornecedorProfileViewSet(viewsets.ModelViewSet):
         """
         if self.action in ['update', 'partial_update', 'destroy']:
             return [IsAuthenticated(), IsOwner()]
-        return [IsAuthenticated()]
+        return super().get_permissions()
 
     def perform_create(self, serializer):
         # Associa o perfil ao usuário autenticado

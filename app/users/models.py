@@ -35,12 +35,12 @@ class ClienteProfile(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name='cliente_profile')
-    name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    phone = PhoneNumberField()
-    address = models.CharField(max_length=500)
+    name = models.CharField(max_length=100, null=True, blank=True)
+    last_name = models.CharField(max_length=100, null=True, blank=True)
+    phone = PhoneNumberField(null=True, blank=True)
+    address = models.CharField(max_length=500, null=True, blank=True)
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
-    score = models.PositiveIntegerField(default=0)
+    score = models.PositiveIntegerField(default=0, null=True, blank=True)
 
     def __str__(self):
         return f"Cliente: {self.user.username}"
@@ -55,13 +55,13 @@ class MecanicoProfile(models.Model):
     )
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name='mecanico_profile')
-    address = models.CharField(max_length=500)
-    open_time = models.TimeField()
-    close_time = models.TimeField()
-    phone = PhoneNumberField()
-    level = models.CharField(max_length=20, choices=LEVELS, default='Bronze')
+    address = models.CharField(max_length=500, null=True, blank=True)
+    open_time = models.TimeField(null=True, blank=True)
+    close_time = models.TimeField(null=True, blank=True)
+    phone = PhoneNumberField(null=True, blank=True)
+    level = models.CharField(max_length=20, choices=LEVELS, default='Bronze', null=True, blank=True)
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
-    score = models.PositiveIntegerField(default=0)
+    score = models.PositiveIntegerField(default=0, null=True, blank=True)
 
     def __str__(self):
         return f"Mecânico: {self.user.username} - {self.level}"
