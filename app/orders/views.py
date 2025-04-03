@@ -6,7 +6,7 @@ from .permissions import IsMecanico, IsMecanicoOrFornecedor
 
 
 class CreateOrderView(generics.CreateAPIView):
-    permission_classes = []
+    permission_classes = [IsAuthenticated, IsMecanico]
     serializer_class = OrderSerializer
     queryset = Order.objects.all()
 
