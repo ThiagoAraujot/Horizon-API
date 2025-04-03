@@ -20,6 +20,7 @@ api_urls = [
     path('', include('users.urls')),
     path('', include('vehicles.urls')),
     path('', include('scheduling.urls')),
+    path('', include('reviews.urls')),
 ]
 
 urlpatterns = [
