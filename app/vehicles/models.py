@@ -13,5 +13,8 @@ class Vehicle(models.Model):
     plate = models.CharField(max_length=7)
     km = models.PositiveIntegerField(blank=True, null=True)
     
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
     def __str__(self):
         return f"{self.brand} {self.model} ({self.factory_year})"
