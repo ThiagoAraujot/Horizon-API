@@ -12,18 +12,18 @@ class User(AbstractUser):
     )
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
     email = models.EmailField(unique=True)
-    
+
     groups = models.ManyToManyField(
-        'auth.Group', 
-        related_name='custom_user_set', 
-        blank=True, 
+        'auth.Group',
+        related_name='custom_user_set',
+        blank=True,
         help_text='The groups this user belongs to.'
     )
-    
+
     user_permissions = models.ManyToManyField(
-        'auth.Permission', 
-        related_name='custom_user_permissions_set', 
-        blank=True, 
+        'auth.Permission',
+        related_name='custom_user_permissions_set',
+        blank=True,
         help_text='Specific permissions for this user.'
     )
 
@@ -59,9 +59,12 @@ class MecanicoProfile(models.Model):
     open_time = models.TimeField(null=True, blank=True)
     close_time = models.TimeField(null=True, blank=True)
     phone = PhoneNumberField(null=True, blank=True)
-    level = models.CharField(max_length=20, choices=LEVELS, default='Bronze', null=True, blank=True)
+    level = models.CharField(
+        max_length=20, choices=LEVELS, default='Bronze', null=True, blank=True)
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
     score = models.PositiveIntegerField(default=0, null=True, blank=True)
+    purchase_count = models.PositiveIntegerField(
+        default=1, null=True, blank=True)
 
     def __str__(self):
         return f"Mecânico: {self.user.username} - {self.level}"

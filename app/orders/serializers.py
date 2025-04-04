@@ -10,6 +10,8 @@ class OrderSerializer(serializers.ModelSerializer):
 
     fornecedor_data = MecanicoProfileSerializer(
         source="fornecedor", read_only=True)
+    mecanico_data = MecanicoProfileSerializer(
+        source="mecanico", read_only=True)
 
     class Meta:
         model = Order
