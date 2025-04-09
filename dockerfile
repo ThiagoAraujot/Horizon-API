@@ -16,4 +16,4 @@ RUN adduser --disabled-password --no-create-home django-user
 
 ENV PATH="py/bin:$PATH"
 
-ENTRYPOINT [ "gunicorn", "app.wsgi" ]
+# ENTRYPOINT [ "gunicorn", "app.wsgi" ]
