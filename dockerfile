@@ -7,13 +7,13 @@ RUN apt-get update
 COPY ./requirements.txt /requirements.txt
 RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
+
 RUN mkdir /app
 COPY ./app /app
 WORKDIR /app
-EXPOSE 8000
 
-RUN adduser --disabled-password --no-create-home django-user
+ENV PORT=8000
 
-ENV PATH="py/bin:$PATH"
+RUN python manage.py collectstatic --noinput
 
-ENTRYPOINT [ "gunicorn", "app.wsgi" ]
+CMD gunicorn app.wsgi:application --bind 0.0.0.0:$PORT
